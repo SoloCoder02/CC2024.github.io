@@ -1,0 +1,417 @@
+
+
+* {
+  font-family: "Podkova", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  box-sizing: border-box;
+}
+
+/*SCROLLBAR*/
+
+/* width */
+scrollbar, ::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+scrollbar, ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 5px;
+}
+ 
+/* Handle */
+scrollbar, ::-webkit-scrollbar-thumb {
+  background: white; 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+scrollbar, ::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+   height: 100%;
+   margin: 0;
+}
+
+header {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background {
+    background-image: url('image/backg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+} 
+
+
+input[type="text"] {
+    width: 138px;
+    padding: 10px;
+    margin-bottom: 25px;
+    margin-top: 30px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    font-size: 1.2em;
+    color: white;
+    background-color: #20CA31;
+}
+
+#name{
+
+text-align: center;
+
+
+}
+
+::placeholder {
+    color: white; /* Kleur van de placeholder-tekst */
+    text-align: center;
+
+}
+
+.centerItems{
+    text-align: center;
+}
+
+select {
+    width: 138px;
+    padding: 10px;
+    margin-bottom: 25px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    font-size: 1.2em;
+    color: white;
+    background-color: #CA2020;
+    text-align: center;
+}
+
+button[type="submit"], .modal-content button {
+    width: 138px;
+    padding: 10px;
+    background-color: #F57D0E;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+
+button[type="submit"]:hover {
+    background-color: --;
+}
+
+#tip {
+    position: fixed; /* Zorgt ervoor dat de link een vast positie heeft */
+    bottom: 40px; /* Afstand tot de onderkant van het scherm */
+    right: 100px; /* Afstand tot de linkerkant van het scherm */
+    cursor: pointer;
+
+}
+
+/* Stijlen voor de afbeelding binnen de link */
+#tip img {
+    width: 45px; /* Breedte van de afbeelding */
+    height: 45px; /* Behoud de aspect ratio */
+}
+
+.gradient-heading {
+    background: linear-gradient(to right, #ffa500, #000000); /* Lineaire kleurovergang van oranje naar zwart */
+    -webkit-background-clip: text; /* Zorgt ervoor dat de tekst wordt weergegeven met de achtergrondkleur */
+    -webkit-text-fill-color: transparent; /* Zorgt ervoor dat de tekst transparant wordt, zodat de lineaire kleurovergang zichtbaar is */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 43vh; 
+    margin: 0; /* Verwijder standaardmarges */
+    font-weight: bold;
+}
+
+
+/*REWARD PAGE*/
+
+.container2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(216, 153, 108, 0.98);
+    padding: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}/*Voor Reward.html*/
+
+
+.awrd {
+    margin: 0 auto; /* Plaats de div in het midden van zijn oudercontainer */
+    background-color: #F57D0E; /* Oranje achtergrondkleur */
+    width: fit-content; /* Pas de breedte aan op basis van de inhoud */
+    padding-left: 6px;
+    padding-right: 6px;
+
+}
+
+.awrd p {
+    color: white; /* Witte tekstkleur */
+    font-weight: bold; /* Vetgedrukte tekst */
+     padding-top: 7px;
+        padding-bottom: 7px;
+        font-size: 18px;
+        }
+
+.fbn{
+    margin-top: 15px;
+    text-align: center;
+}
+
+.fbn button[type="submit"] {
+     width: fit-content;
+    background-color: #CA2020;
+    color: white;
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tbl table {
+    border-collapse: collapse; /* Collapseer de grenzen van de tabelcellen */
+     border: none; /* Verwijder de standaard rand van de tabel */
+}
+
+.tbl table td {
+    border: none; /* Verwijder de standaard rand van de tabelcellen */
+    padding-top: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+}
+
+ .good1{
+    padding-left: 20px;
+}
+
+.mediocre2{
+    padding-left: 20px;
+}
+
+.bad1{
+    padding-left: 20px;
+}
+.score1{
+    padding-left: 20px;
+}
+
+/* Voeg deze stijl toe voor de cijfergedeeltes */
+.score-number1 {
+    color: #599D39; /* Kleur van de cijfers */
+}
+.score-number2 {
+    color: #FFB800; /* Kleur van de cijfers */
+}
+.score-number3 {
+    color: #FB0000; /* Kleur van de cijfers */
+}
+.score-number4{
+    color: blue; /* Kleur van de cijfers */
+}
+
+
+/*test*/
+.container3 {
+    display: flex;
+   height: calc(100vh - 160px); /* Hoogte van het viewport minus de hoogte van de dropzones */
+}
+
+.dropzone {
+    flex: 1; /* Verdeelt de ruimte gelijkmatig tussen de drie dropzones */
+    border: 2px dashed #ccc;
+    text-align: center;
+    overflow: auto;
+    box-shadow: inset 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+   
+}
+
+#good-zone {
+    background-color: rgba(43, 140, 41, 80%);
+    color: white;
+}
+
+#mediocre-zone {
+    background-color: rgba(229, 123, 24, 80%);
+    color: white;
+}
+
+#bad-zone {
+    background-color: rgba(181, 26, 26, 80%);
+    color: white;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px; /* Hoogte van de afbeeldingscontainer */
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.image-container img {
+    width: 100px; /* Aanpassen aan de gewenste grootte */
+    height: 100px; /* Aanpassen aan de gewenste grootte */
+    margin: 0 10px; /* Ruimte tussen afbeeldingen */
+    cursor: grab;
+}
+
+#timer {
+/*    width: 100%;*/
+    display: block;
+    text-align: center;
+}
+
+#navbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: rgba(216, 153, 108, 0.98);
+    padding: 10px;
+    font-size: 20px;
+    font-family: sans-serif;
+    color: white;
+    font-weight: bolder;
+    height: 40px;
+  align-content: center;
+}
+
+.dropzone img {
+    height: 150px;
+    width: 200px;
+    object-fit: fill;
+    margin: 5px;
+}
+
+#myModal {
+    display: block;
+}
+
+/* Styles for modal */
+       .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    }
+
+  .modal-content {
+    background-color: white;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 20px;
+    border: 1px solid #888;
+    width: 450px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  left:85%;
+  top: 50%;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: rgba(216, 153, 108);
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  position: absolute;
+  z-index: 1;
+  bottom: 40px;
+  left: -55px;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  line-height: 20px;
+  border-bottom-right-radius: 0;
+}
+
+/* Figure-like thinking logo */
+.tooltip .thinking-logo {
+  width: 40px; /* Adjust size as needed */
+  height: auto;
+  position: absolute;
+  top: -55px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, -5px); /* Adjust vertical position */
+}
+
+#redirectButton {
+    background-color: #CA2020;
+    color: whitesmoke;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 1px;
+    width: 60px;
+    height: 20px;
+    cursor: pointer;
+    position: fixed;
+    top: 12px;
+    right: 20px;
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Change Challenge</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Podkova:wght@800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style type="text/css">
+        body{
+           overflow: hidden; /* Verbergt de overflow */
+       } 
+
+       
+
+</style>
+
+
+</head>
+<body class="podkova-body">
+    <header id="game"> 
+        <div class="background"></div>
+        <div id="navbar">
+            <div id="name-display"></div>
+            <button id="redirectButton">Home</button>
+            <div id="timer"></div>
+        </div>
+        <div class="container3">
+           <div class="dropzone" id="good-zone">
+            <h2>Good</h2>
+        </div>
+        <div class="dropzone" id="mediocre-zone">
+         <h2>Mediocre</h2>
+     </div>
+     <div class="dropzone" id="bad-zone">
+         <h2>Bad</h2>
+     </div>
+ </div>
+ <div class="image-container" id="image-container">
+    <!-- Hier worden de afbeeldingen weergegeven DEZE MAG WEG JS DOET HET WEL-->
+       
+     </div>
+ </header>
+
+  <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Retrieve player's name from URL query parameters
+            const params = new URLSearchParams(window.location.search);
+            const playerName = params.get('name');
+            
+            // Display player's name in the name-display element
+            const nameDisplay = document.getElementById('name-display');
+            nameDisplay.textContent = playerName ? "Name: " + playerName : "Name: Unknown";
+            
+            // Retrieve stored images from sessionStorage
+            const storedImages = JSON.parse(sessionStorage.getItem('generatedImages'));
+            
+            // Define a mapping between image filenames and corresponding text
+            const imageTextMap = {
+                'g (1).jpg': 'g1',
+                'g (2).jpg': 'g2',
+                'g (3).jpg': 'Yg3',
+                'g (4).jpg': 'g4',
+                'g (5).jpg': 'g5',
+                'g (6).jpg': 'Yg6',
+                'g (7).jpg': 'g7',
+                'g (8).jpg': 'g8',
+                'g (9).jpg': 'Yg9',
+                'g (10).jpg': 'g10',
+                'g (11).jpg': 'g11',
+                'g (12).jpg': 'Yg12',
+                'g (13).jpg': 'g13',
+                'g (14).jpg': 'g14',
+                'g (15).jpg': 'Yg15',
+                // Add more mappings for other images as needed
+                'm (1).jpg': 'b1.',
+                'm (2).jpg': 'b2.',
+                'm (3).jpg': 'b3.',
+                'm (4).jpg': 'b4.',
+                'm (5).jpg': 'b5.',
+                'm (6).jpg': 'b6.',
+                'm (7).jpg': 'b7.',
+                'm (8).jpg': 'b8.',
+                'm (9).jpg': 'b9.',
+                'm (10).jpg': 'b10.',
+                'm (11).jpg': 'b11.',
+                'm (12).jpg': 'b12.',
+                'm (13).jpg': 'b13.',
+                'm (14).jpg': 'b14.',
+                'm (15).jpg': 'b15.',
+                // Add more mappings for other images as needed
+                'b (1).jpg': 'm1',
+                'b (2).jpg': 'm2.',
+                'b (3).jpg': 'm3.',
+                'b (4).jpg': 'm4',
+                'b (5).jpg': 'm5.',
+                'b (6).jpg': 'm6.',
+                'b (7).jpg': 'm7',
+                'b (8).jpg': 'm8.',
+                'b (9).jpg': 'm9.',
+                'b (10).jpg': 'm10',
+                'b (11).jpg': 'm11.',
+                'b (12).jpg': 'm12.',
+                'b (13).jpg': 'm13',
+                'b (14).jpg': 'm14.',
+                'b (15).jpg': 'm15.',
+                // Add more mappings for other images as needed
+            };
+
+            // Function to create image elements and append them to the respective zones
+            function appendImagesToZones(images) {
+                images.forEach(imageSrc => {
+                    const img = document.createElement('img');
+                    img.src = imageSrc;
+                    img.style.maxWidth = '100%'; // Set maximum width to ensure responsiveness
+                    img.style.maxHeight = '100%'; // Set maximum height to ensure responsiveness
+                    // Add click event listener to each image
+                    img.addEventListener('click', function() {
+                        displayText(imageSrc); // Display corresponding text when image is clicked
+                    });
+                    const prefix = imageSrc.split('/')[1];
+                    switch (prefix[0]) {
+                        case 'g':
+                            document.getElementById('good-zone').appendChild(img);
+                            break;
+                        case 'm':
+                            document.getElementById('mediocre-zone').appendChild(img);
+                            break;
+                        case 'b':
+                            document.getElementById('bad-zone').appendChild(img);
+                            break;
+                        default:
+                            // Handle images with unknown prefixes (if any)
+                            console.log(`Image with unknown prefix: ${imageSrc}`);
+                    }
+                });
+            }
+
+            // Check if there are stored images
+            if (storedImages && storedImages.length > 0) {
+                // If stored images exist, append them to the respective zones
+                appendImagesToZones(storedImages);
+            } else {
+                // If no stored images, display a message or handle accordingly
+                console.log('No stored images found.');
+            }
+
+            // Function to display text in the image-container based on the clicked image
+            function displayText(imageSrc) {
+                const imageContainer = document.getElementById('image-container');
+                // Extract the filename from the imageSrc
+                const fileName = imageSrc.substring(imageSrc.lastIndexOf('/') + 1);
+                // Look up the corresponding text from the imageTextMap
+                const text = imageTextMap[fileName];
+                // Display the text in the image-container.
+                imageContainer.textContent = text || 'No description available for this image we are sorry!.';
+                    }
+
+                    // Button click event listener to redirect to index.html and clear sessions
+            document.getElementById('redirectButton').addEventListener('click', function() {
+                // Clear sessionStorage
+                sessionStorage.clear();
+                // Redirect to index.html
+                window.location.href = 'index.html';
+            });
+
+                    });
+</script>
+
+</body>
+</html>

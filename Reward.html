@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Change Challenge</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Podkova:wght@800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container2">
+        <div class="awrd">
+            <p>AWARD BOARD</p>
+        </div>
+        <div class="tbl">
+            <table>
+                <tr>
+                    <td class="good">GOOD: </td>
+                    <td class="good1"><span class="score-number1">0/5</span></td> <!-- Update initial count to 0/5 -->
+                </tr>
+                <tr>
+                    <td class="mediocre">MEDIOCRE: </td>
+                    <td class="mediocre2"><span class="score-number2">0/5</span></td> <!-- Update initial count to 0/5 -->
+                </tr>
+                <tr>
+                    <td class="bad">BAD: </td>
+                    <td class="bad1"><span class="score-number3">0/5</span></td> <!-- Update initial count to 0/5 -->
+                </tr>
+                <tr>
+                    <td class="score">SCORE: </td>
+                    <td class="score1"> <span class="score-number4">0/15</span></td> <!-- Update initial count to 0/15 -->
+                </tr>
+            </table>
+        </div>
+        <form class="fbn" action="Results.html" method="get" id="resultsForm">
+            <input type="hidden" id="playerName" name="name" value="">
+            <button type="submit">Review</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Retrieve counts from sessionStorage
+            const storedCounts = JSON.parse(sessionStorage.getItem('imageCounts'));
+
+            // Display the counts
+            if (storedCounts) {
+                // Update the HTML elements with the retrieved counts
+                document.querySelector('.score-number1').textContent = `${storedCounts.goodCount}/5`;
+                document.querySelector('.score-number2').textContent = `${storedCounts.mediocreCount}/5`;
+                document.querySelector('.score-number3').textContent = `${storedCounts.badCount}/5`;
+                document.querySelector('.score-number4').textContent = `${storedCounts.goodCount + storedCounts.mediocreCount + storedCounts.badCount}/15`;
+            // Determine the total score
+            const score = storedCounts.goodCount + storedCounts.mediocreCount + storedCounts.badCount;
+
+            // Display modal based on score
+            if (score > 5) {
+                displayModal('You did a good job!');
+            } else {
+                displayModal('You failed!');
+            }
+        }
+
+        // Retrieve player's name from URL query parameters
+const params = new URLSearchParams(window.location.search);
+const playerName = params.get('name');
+// Set player's name in the hidden input field
+document.getElementById('playerName').value = playerName;
+
+    });
+
+    // Function to display custom modal with a message
+    function displayModal(message) {
+        const modal = document.createElement('div');
+        modal.classList.add('modal');
+        modal.setAttribute('id', 'myModal');
+
+        const modalContent = document.createElement('div');
+        modalContent.classList.add('modal-content');
+
+        const messageElement = document.createElement('p');
+        messageElement.textContent = message;
+
+        const closeButton = document.createElement('button');
+        closeButton.textContent = 'Close';
+        closeButton.addEventListener('click', () => {
+            // Close the modal
+            modal.style.display = 'none';
+        });
+
+        modalContent.appendChild(messageElement);
+        modalContent.appendChild(closeButton);
+        modal.appendChild(modalContent);
+
+        document.body.appendChild(modal);
+    }
+
+
+    </script>
+</body>
+</html>
