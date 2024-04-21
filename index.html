@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Change Challenge</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Podkova:wght@800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body >
+    <header>
+        <h1 class="gradient-heading">CLIMATE CHANGE CHALLENGE</h1>
+        <div class="background">  
+        </div>
+        <div class="container">
+            <form class="centerItems" action="gameArena.html" method="post" id="gameForm">
+                <input type="text" id="name" placeholder="Name" required>
+                <br>
+                <select id="level">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+                <br>
+                <button type="submit">Start</button>
+            </form>
+        </div>
+
+        <div class="tooltip">
+            <div id="tip">
+                <img src="image/questn.png" alt="Beschrijving van de afbeelding">
+            </div>
+            <span class="tooltiptext"><h2>GAME RULES:</h2>
+                <hr style="color: white; margin-bottom: 20px;">
+                - Time Challenge: Each level presents you with a set of 15 pictures. Your decision-making time is limited, and the clock is ticking! The countdown timer indicates how much time you have left to make your choices wisely.
+               
+                <br> - Drag and Drop: Analyze each picture carefully and categorize it by dragging and dropping it into one of three fields: Good, Mediocre, or Bad. Your judgment will shape your score, so choose wisely!
+                <br>
+                - Randomized Pictures: Every time you play, the pictures are shuffled randomly, keeping the challenge fresh and exciting.
+                <br>
+                - Scoring: Once the timer runs out, it's time to see how well you've judged. Your score is based on the accuracy of your placements and the quality of your decisions. Did you nail it or miss the mark?
+                <br>
+                - Review and Learn: After scoring, you'll have the opportunity to review your choices and learn from your mistakes. Study your artwork, reflect on your decisions, and sharpen your judgment skills for the next round.
+                <br>
+                <br>
+                Are you ready to test your judgment and become a DecisionMaster? Let the game begin!
+            </span>
+        </div>
+        
+    </header>
+
+    <script>
+        document.getElementById('gameForm').addEventListener('submit', function(e) {
+             // Get the entered name
+            var playerName = document.getElementById('name').value;
+            // Get the selected level
+            var selectedLevel = document.getElementById('level').value;
+            // Set timer based on the selected level
+            var timer;
+            switch (selectedLevel) {
+            case 'hard':
+                    timer = 15; // Random between 5 to 10 seconds
+                    break;
+                case 'medium':
+                    timer = 30; // Random between 10 to 15 seconds
+                    break;
+                case 'easy':
+                    timer = 45; // Random between 15 to 20 seconds
+                    break;
+                default:
+                    timer = 120; // Default timer
+                    break;
+                }
+            // Pass timer value and player name to next page as query parameters
+                window.location.href = "gameArena.html?timer=" + timer + "&name=" + playerName;
+                e.preventDefault();
+            });
+        </script>
+    </body>
+    </html>
